@@ -73,8 +73,10 @@
  footer .socials a{display:flex;align-items:center}
  footer .socials svg{width:28px;height:28px;fill:white;transition:transform .2s ease, opacity .2s ease}
  @media(hover:hover){footer .socials a:hover svg{transform:translateY(-2px);opacity:.9}}
- .reveal{opacity:0;transform:translateY(12px);filter:blur(2px)}
- .reveal.in{opacity:1;transform:none;filter:none;transition:opacity .7s ease, transform .7s ease, filter .6s ease}
+ /* Progressive-enhancement das reveals: visível por defeito; só esconde com JS ativo */
+ .reveal{opacity:1;transform:none;filter:none}
+ .js .reveal{opacity:0;transform:translateY(12px);filter:blur(2px)}
+ .js .reveal.in{opacity:1;transform:none;filter:none;transition:opacity .7s ease, transform .7s ease, filter .6s ease}
  [data-stagger] > *{opacity:0;transform:translateY(14px)}
  [data-stagger].in > *{opacity:1;transform:none;transition:opacity .7s ease, transform .7s ease}
  [data-stagger].in > *:nth-child(1){transition-delay:.06s}
@@ -93,6 +95,7 @@
  @media(max-width:600px){h1{font-size:34px !important}h2{font-size:26px !important}.card{padding:20px !important}}
  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
  </style>
+ <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
  <a class="skip-link" href="#main">Saltar para o conteúdo</a>
@@ -250,9 +253,9 @@
   </div>
  </div>
  <script defer>
- (function(){ const reveals=[].slice.call(document.querySelectorAll('.reveal,[data-stagger]')); if(!('IntersectionObserver' in window)){ reveals.forEach(el=>el.classList.add('in'));return } const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -10% 0px'}); reveals.forEach(el=>io.observe(el)); })();
- (function(){ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(prefersReduced) return; document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ const id=a.getAttribute('href'); if(id.length>1){ const el=document.querySelector(id); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});} } }); }); })();
- (function(){ const lb=document.getElementById('lightbox'); const lbImg=document.getElementById('lbImg'); const lbCap=document.getElementById('lbCap'); const lbClose=document.getElementById('lbClose'); const clickable=document.querySelectorAll('.flyers a,.logos a,.gallery a'); function openLB(e){ e.preventDefault(); const href=this.getAttribute('href'); const cap=this.getAttribute('data-caption') || ''; lbImg.src=href;lbCap.textContent=cap;lb.classList.add('open'); lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'; lbClose.focus(); } clickable.forEach(a=>a.addEventListener('click',openLB)); function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='auto'} lbClose.addEventListener('click',closeLB); lb.addEventListener('click',ev=>{if(ev.target===lb) closeLB()}); document.addEventListener('keydown',ev=>{if(ev.key==='Escape') closeLB()}); })();
+ (function(){ try{ const reveals=[].slice.call(document.querySelectorAll('.reveal,[data-stagger]')); if(!('IntersectionObserver' in window)){ reveals.forEach(el=>el.classList.add('in'));return } const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -10% 0px'}); reveals.forEach(el=>io.observe(el)); }catch(e){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); }})();
+ (function(){ try{ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(prefersReduced) return; document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ const id=a.getAttribute('href'); if(id.length>1){ const el=document.querySelector(id); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});} } }); }); }catch(e){} })();
+ (function(){ try{ const lb=document.getElementById('lightbox'); const lbImg=document.getElementById('lbImg'); const lbCap=document.getElementById('lbCap'); const lbClose=document.getElementById('lbClose'); const clickable=document.querySelectorAll('.flyers a,.logos a,.gallery a'); function openLB(e){ e.preventDefault(); const href=this.getAttribute('href'); const cap=this.getAttribute('data-caption') || ''; lbImg.src=href;lbCap.textContent=cap;lb.classList.add('open'); lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'; lbClose.focus(); } clickable.forEach(a=>a.addEventListener('click',openLB)); function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='auto'} lbClose.addEventListener('click',closeLB); lb.addEventListener('click',ev=>{if(ev.target===lb) closeLB()}); document.addEventListener('keydown',ev=>{if(ev.key==='Escape') closeLB()}); }catch(e){} })();
  function openMenu(){ const m=document.getElementById('mobileMenu'); const o=document.getElementById('menuOverlay'); m.classList.add('open');o.classList.add('show');m.setAttribute('aria-hidden','false'); document.getElementById('closeMenu').focus(); }
  function closeMenu(){ const m=document.getElementById('mobileMenu'); const o=document.getElementById('menuOverlay'); m.classList.remove('open');o.classList.remove('show');m.setAttribute('aria-hidden','true') }
  Array.prototype.slice.call(document.querySelectorAll('#mobileMenu .m-link')).forEach(function(a){a.addEventListener('click',closeMenu)}); document.addEventListener('keydown',function(ev){ if(ev.key==='Escape') closeMenu(); });
