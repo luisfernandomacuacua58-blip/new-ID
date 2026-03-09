@@ -3,12 +3,13 @@
 <head>
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Luis Macuácua — Portfólio Profissional (V5.9)</title>
+ <title>Luis Macuácua — Portfólio Profissional (V6.0)</title>
  <meta name="description" content="Identidades visuais, logotipos, social media e design profissional. Portfólio de Luis Macuácua." />
  <meta name="theme-color" content="#0A355C">
  <link rel="canonical" href="https://luismacuacua.vercel.app/">
  <link rel="icon" href="/favicon.ico">
  <link rel="preload" as="image" href="/hero.png" imagesrcset="/hero.png 1x" imagesizes="(max-width: 600px) 100vw, 420px">
+ <link rel="preconnect" href="https://wa.me" crossorigin>
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Luis Macuácua — Portfólio">
  <meta property="og:title" content="Portfólio de Design — Luis Macuácua">
@@ -55,7 +56,7 @@
  section h2{font-size:32px;margin-bottom:16px;color:var(--blue-accent)}
  #sobre{padding-bottom:40px}
  #flyers{padding-top:40px}
- #portfolio, #depoimentos, #cta{content-visibility:auto; contain-intrinsic-size: 900px 600px}
+ #portfolio, #cta{content-visibility:auto; contain-intrinsic-size: 900px 600px}
  .grid{display:grid;gap:26px}
  .two{grid-template-columns:1fr 1fr}
  .card{background:var(--card);color:var(--text);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
@@ -86,7 +87,7 @@
  .js .reveal{opacity:0;transform:translateY(12px);filter:blur(2px)}
  .js .reveal.in{opacity:1;transform:none;filter:none;transition:opacity .7s ease, transform .7s ease, filter .6s ease}
  #servicos{opacity:1 !important;transform:none !important;filter:none !important}
- /* LIGHTBOX (no stray UI when closed) */
+ /* LIGHTBOX clean */
  .lb-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1100;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .25s ease, visibility .25s ease}
  .lb-backdrop.open{visibility:visible;opacity:1;pointer-events:auto}
  .lb-content{max-width:92vw;max-height:86vh;position:relative}
@@ -141,7 +142,7 @@
    <h2>Sobre Mim</h2>
    <div class="grid two">
     <div class="card-white">
-     <img src="sobre.png" width="1200" height="800" alt="Imagem profissional na secção Sobre Mim" loading="lazy" decoding="async">
+     <img src="sobre.png" width="1200" height="800" alt="Imagem profissional na secção Sobre Mim" loading="lazy" decoding="async" fetchpriority="low">
     </div>
     <div>
      <p>Ajudo marcas, empresas e empreendedores a comunicar com clareza através de design profissional e estratégico. Crio identidades visuais, logotipos, banners, flyers, rótulos e artes para redes sociais com foco total em resultado e diferenciação.</p>
@@ -163,9 +164,9 @@
   <section id="flyers" class="reveal">
    <h2>Como me apresento</h2>
    <div class="flyers" data-stagger>
-    <a href="/flyer1.png" data-caption="Como me apresento — #1"><img src="/flyer1.png" width="800" height="1000" alt="Como me apresento — arte 1" loading="lazy" decoding="async"></a>
-    <a href="/flyer2.png" data-caption="Como me apresento — #2"><img src="/flyer2.png" width="800" height="1000" alt="Como me apresento — arte 2" loading="lazy" decoding="async"></a>
-    <a href="/flyer3.png" data-caption="Como me apresento — #3"><img src="/flyer3.png" width="800" height="1000" alt="Como me apresento — arte 3" loading="lazy" decoding="async"></a>
+    <a href="/flyer1.png" data-caption="Como me apresento — #1"><img src="/flyer1.png" width="800" height="1000" alt="Como me apresento — arte 1" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/flyer2.png" data-caption="Como me apresento — #2"><img src="/flyer2.png" width="800" height="1000" alt="Como me apresento — arte 2" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/flyer3.png" data-caption="Como me apresento — #3"><img src="/flyer3.png" width="800" height="1000" alt="Como me apresento — arte 3" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
    </div>
   </section>
   <section id="marcas" class="reveal">
@@ -174,7 +175,7 @@
    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;max-width:900px;margin:auto;" data-stagger>
     <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
       <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
-        <img src="/saz.png" alt="Logo SAZ Training School" style="width:64px;height:64px;object-fit:contain;">
+        <img src="/saz.png" alt="Logo SAZ Training School" style="width:64px;height:64px;object-fit:contain;" loading="lazy" decoding="async" fetchpriority="low" importance="low">
       </div>
       <h3 style="margin:0 0 6px;color:#fff;">SAZ Training School</h3>
       <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Branding</p>
@@ -182,7 +183,7 @@
     </div>
     <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
       <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
-        <img src="/fix.png" alt="Logo Fix Agency" style="width:64px;height:64px;object-fit:contain;">
+        <img src="/fix.png" alt="Logo Fix Agency" style="width:64px;height:64px;object-fit:contain;" loading="lazy" decoding="async" fetchpriority="low" importance="low">
       </div>
       <h3 style="margin:0 0 6px;color:#fff;">Fix Agency</h3>
       <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Design</p>
@@ -190,7 +191,7 @@
     </div>
     <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
       <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
-        <img src="/taaqui.png" alt="Logo taAqui Mozambique" style="width:64px;height:64px;object-fit:contain;">
+        <img src="/taaqui.png" alt="Logo taAqui Mozambique" style="width:64px;height:64px;object-fit:contain;" loading="lazy" decoding="async" fetchpriority="low" importance="low">
       </div>
       <h3 style="margin:0 0 6px;color:#fff;">taAqui Mozambique</h3>
       <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Design</p>
@@ -201,28 +202,20 @@
   <section id="portfolio" class="reveal">
    <h2>Portfólio Geral</h2>
    <div class="gallery" data-stagger>
-    <a href="/img1.jpg" data-caption="Imagem 1"><img src="/img1.jpg" width="1200" height="900" alt="Imagem 1" loading="lazy" decoding="async"></a>
-    <a href="/img2.jpg" data-caption="Imagem 2"><img src="/img2.jpg" width="1200" height="900" alt="Imagem 2" loading="lazy" decoding="async"></a>
-    <a href="/img3.jpg" data-caption="Imagem 3"><img src="/img3.jpg" width="1200" height="900" alt="Imagem 3" loading="lazy" decoding="async"></a>
-    <a href="/img4.jpg" data-caption="Imagem 4"><img src="/img4.jpg" width="1200" height="900" alt="Imagem 4" loading="lazy" decoding="async"></a>
-    <a href="/img5.jpg" data-caption="Imagem 5"><img src="/img5.jpg" width="1200" height="900" alt="Imagem 5" loading="lazy" decoding="async"></a>
-    <a href="/img6.jpg" data-caption="Imagem 6"><img src="/img6.jpg" width="1200" height="900" alt="Imagem 6" loading="lazy" decoding="async"></a>
-    <a href="/img7.jpg" data-caption="Imagem 7"><img src="/img7.jpg" width="1200" height="900" alt="Imagem 7" loading="lazy" decoding="async"></a>
-    <a href="/img8.jpg" data-caption="Imagem 8"><img src="/img8.jpg" width="1200" height="900" alt="Imagem 8" loading="lazy" decoding="async"></a>
-    <a href="/img9.jpg" data-caption="Imagem 9"><img src="/img9.jpg" width="1200" height="900" alt="Imagem 9" loading="lazy" decoding="async"></a>
-    <a href="/img10.jpg" data-caption="Imagem 10"><img src="/img10.jpg" width="1200" height="900" alt="Imagem 10" loading="lazy" decoding="async"></a>
-    <a href="/img11.jpg" data-caption="Imagem 11"><img src="/img11.jpg" width="1200" height="900" alt="Imagem 11" loading="lazy" decoding="async"></a>
-    <a href="/img12.jpg" data-caption="Imagem 12"><img src="/img12.jpg" width="1200" height="900" alt="Imagem 12" loading="lazy" decoding="async"></a>
-    <a href="/img13.jpg" data-caption="Imagem 13"><img src="/img13.jpg" width="1200" height="900" alt="Imagem 13" loading="lazy" decoding="async"></a>
-    <a href="/img14.jpg" data-caption="Imagem 14"><img src="/img14.jpg" width="1200" height="900" alt="Imagem 14" loading="lazy" decoding="async"></a>
-   </div>
-  </section>
-  <section id="depoimentos" class="reveal">
-   <h2>Depoimentos</h2>
-   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));" data-stagger>
-    <div class="testimonial">“Serviço impecável. O resultado final superou totalmente as expectativas.” — Cliente Local</div>
-    <div class="testimonial">“Comunicação excelente e design extremamente bem executado. Recomendo vivamente.” — Pequeno Negócio</div>
-    <div class="testimonial">“Processo simples, rápido e muito profissional. O design ficou exatamente como imaginávamos.” — Empreendedor</div>
+    <a href="/img1.jpg" data-caption="Imagem 1"><img src="/img1.jpg" width="1200" height="900" alt="Imagem 1" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img2.jpg" data-caption="Imagem 2"><img src="/img2.jpg" width="1200" height="900" alt="Imagem 2" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img3.jpg" data-caption="Imagem 3"><img src="/img3.jpg" width="1200" height="900" alt="Imagem 3" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img4.jpg" data-caption="Imagem 4"><img src="/img4.jpg" width="1200" height="900" alt="Imagem 4" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img5.jpg" data-caption="Imagem 5"><img src="/img5.jpg" width="1200" height="900" alt="Imagem 5" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img6.jpg" data-caption="Imagem 6"><img src="/img6.jpg" width="1200" height="900" alt="Imagem 6" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img7.jpg" data-caption="Imagem 7"><img src="/img7.jpg" width="1200" height="900" alt="Imagem 7" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img8.jpg" data-caption="Imagem 8"><img src="/img8.jpg" width="1200" height="900" alt="Imagem 8" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img9.jpg" data-caption="Imagem 9"><img src="/img9.jpg" width="1200" height="900" alt="Imagem 9" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img10.jpg" data-caption="Imagem 10"><img src="/img10.jpg" width="1200" height="900" alt="Imagem 10" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img11.jpg" data-caption="Imagem 11"><img src="/img11.jpg" width="1200" height="900" alt="Imagem 11" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img12.jpg" data-caption="Imagem 12"><img src="/img12.jpg" width="1200" height="900" alt="Imagem 12" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img13.jpg" data-caption="Imagem 13"><img src="/img13.jpg" width="1200" height="900" alt="Imagem 13" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
+    <a href="/img14.jpg" data-caption="Imagem 14"><img src="/img14.jpg" width="1200" height="900" alt="Imagem 14" loading="lazy" decoding="async" fetchpriority="low" importance="low"></a>
    </div>
   </section>
   <section id="cta" style="text-align:center;" class="reveal">
