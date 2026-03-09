@@ -1,365 +1,260 @@
 <!doctype html>
 <html lang="pt">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Luis Macuácua — Portfólio Profissional (V5.6)</title>
-<meta name="description" content="Identidades visuais, logotipos, social media e design profissional. Portfólio de Luis Macuácua." />
-<style>
-:root{
- --bg:#0A355C; --bg-light:#F2F4F7; --text:#FFFFFF; --text-dark:#1A1A1A; --muted:#4B5563;
- --accent:#6CC24A; --accent-hover:#96E56A; --blue-accent:#004A80; --blue-hover:#005C9E;
- --card:#0D2C4A; --radius:18px; --shadow:0 12px 30px rgba(0,0,0,.25);
- --font:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--font);background:var(--bg-light);color:var(--text-dark)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;background:var(--bg);color:var(--text);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:1000}
-nav .logo{font-size:20px;font-weight:800;color:var(--accent)}
-nav .actions a{padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;margin-left:10px;transition:transform .2s ease, background .2s ease}
-.call-now{background:var(--accent);color:#000}
-.call-now:hover{background:var(--accent-hover);transform:translateY(-2px)}
-.whatsapp{background:var(--blue-accent);color:#fff}
-.whatsapp:hover{background:var(--blue-hover);transform:translateY(-2px)}
-/* Hamburger in green */
-.hamburger{display:none;cursor:pointer;font-size:30px;line-height:1;border:0;outline:0;background:var(--accent);color:#000;padding:8px 12px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .18s ease, background .22s ease, box-shadow .22s ease}
-.hamburger:hover{background:var(--accent-hover);transform:translateY(-1px)}
-.hamburger:focus-visible{outline:3px solid rgba(108,194,74,.55);outline-offset:2px}
-@media(max-width:900px){nav .actions{display:none}.hamburger{display:block}}
-
-/* Mobile menu + overlay */
-#menuOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:900}
-#menuOverlay.show{opacity:1;pointer-events:auto}
-#mobileMenu{position:fixed;top:0;right:-260px;width:260px;height:100vh;background:var(--bg);color:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.4);padding:40px 20px;z-index:1001;transform:translateX(260px);opacity:0;transition:transform .35s cubic-bezier(.25,.8,.25,1), opacity .35s ease;display:flex;flex-direction:column;gap:22px}
-#mobileMenu.open{right:0;transform:translateX(0);opacity:1}
-#mobileMenu a{color:#fff;font-size:18px;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}
-#closeMenu{font-size:26px;cursor:pointer;text-align:right;margin-bottom:6px;color:#fff}
-
-/* HERO with glass + organic shape */
-header.hero{position:relative;background:linear-gradient(135deg,#0A355C 0%,#0D2C4A 100%);color:var(--text);padding:160px 20px 110px;display:flex;justify-content:center;align-items:center;overflow:hidden}
-.hero .wrap{max-width:1200px;width:100%;display:flex;gap:40px;align-items:center;position:relative;z-index:1}
-/* organic shape layer */
-.hero-bg-shape{position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(0,120,255,0.16), transparent 60%), radial-gradient(circle at 10% 80%, rgba(0,200,180,0.12), transparent 50%);pointer-events:none;z-index:0}
-header h1{font-size:48px;margin:0 0 14px;font-weight:800;color:var(--accent)}
-header p{max-width:520px;color:var(--text)}
-.btn{padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block;margin-right:10px;transition:transform .22s ease, background .22s ease, box-shadow .22s ease}
-.btn.primary{background:var(--accent);color:#000}
-.btn.primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
-.btn.secondary{background:var(--blue-accent);color:var(--text)}
-.btn.secondary:hover{background:var(--blue-hover);transform:translateY(-2px)}
-.btn:focus-visible{outline:3px solid rgba(108,194,74,.6);outline-offset:2px}
-.glass{background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden}
-
-/* Sections */
-section{padding:70px 20px;max-width:1200px;margin:auto}
-section h2{font-size:32px;margin-bottom:20px;color:var(--blue-accent)}
-.grid{display:grid;gap:26px}
-.two{grid-template-columns:1fr 1fr}
-.card{background:var(--card);color:var(--text);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
-@media(hover:hover){.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.32)}}
-
-/* Sobre Mim white card */
-.card-white{background:#fff;color:var(--text-dark);border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15);overflow:hidden}
-.card-white img{width:100%;height:auto;display:block}
-
-/* Services - horizontal cards with SVG icons */
-.service-card-horizontal{background:var(--card);color:var(--text);display:flex;align-items:flex-start;gap:20px;padding:26px;border-radius:18px;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.2,.6,.2,1), box-shadow .25s ease}
-.service-card-horizontal:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.32)}
-.s-icon{flex:0 0 56px;width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,.08);display:grid;place-items:center}
-.s-icon svg{width:28px;height:28px;stroke:#FFFFFF;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.95}
-.s-text h3{margin:0 0 6px;color:var(--accent);font-size:20px;font-weight:700}
-.s-text .subtitle{margin:0 0 10px;color:rgba(255,255,255,.75);font-size:14px}
-.s-text ul{list-style:none;margin:0;padding:0}
-.s-text ul li{margin:6px 0;color:var(--text);position:relative;padding-left:14px}
-.s-text ul li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)}
-#servicos .grid{grid-template-columns:1fr;gap:18px}
-@media(min-width:820px){#servicos .grid{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){.service-card-horizontal{flex-direction:column}}
-
-/* Galleries */
-.flyers,.logos,.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.flyers a,.logos a,.gallery a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.06);background:#fff;transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
-.flyers img,.logos img,.gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-@media(hover:hover){.flyers a:hover img,.logos a:hover img,.gallery a:hover img{transform:scale(1.02)}.flyers a:hover,.logos a:hover,.gallery a:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.18)}}
-
-/* Footer */
-footer{background:var(--bg);color:var(--text);padding:40px 20px;margin-top:60px;text-align:center}
-footer .socials{display:flex;justify-content:center;gap:22px;margin-top:10px}
-footer .socials a{display:flex;align-items:center}
-footer .socials svg{width:28px;height:28px;fill:white;transition:transform .2s ease, opacity .2s ease}
-@media(hover:hover){footer .socials a:hover svg{transform:translateY(-2px);opacity:.9}}
-
-/* Reveal animations */
-.reveal{opacity:0;transform:translateY(12px);filter:blur(2px)}
-.reveal.in{opacity:1;transform:none;filter:none;transition:opacity .7s ease, transform .7s ease, filter .6s ease}
-[data-stagger] > *{opacity:0;transform:translateY(14px)}
-[data-stagger].in > *{opacity:1;transform:none;transition:opacity .7s ease, transform .7s ease}
-[data-stagger].in > *:nth-child(1){transition-delay:.06s}
-[data-stagger].in > *:nth-child(2){transition-delay:.12s}
-[data-stagger].in > *:nth-child(3){transition-delay:.18s}
-[data-stagger].in > *:nth-child(4){transition-delay:.24s}
-[data-stagger].in > *:nth-child(5){transition-delay:.30s}
-[data-stagger].in > *:nth-child(6){transition-delay:.36s}
-
-/* Lightbox */
-.lb-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:1100}
-.lb-backdrop.open{display:flex}
-.lb-content{max-width:92vw;max-height:86vh;position:relative}
-.lb-content img{max-width:100%;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.lb-close{position:absolute;top:-44px;right:0;background:#fff;color:#111;padding:8px 12px;border-radius:8px;font-weight:700;cursor:pointer}
-.lb-caption{margin-top:10px;color:#eee;text-align:center;font-size:14px}
-
-/* Responsive */
-@media(max-width:900px){header .wrap{flex-direction:column;text-align:center}.btn{width:100%;margin:10px 0}.two{grid-template-columns:1fr}section{padding:50px 16px}}
-@media(max-width:600px){h1{font-size:34px !important}h2{font-size:26px !important}.card{padding:20px !important}}
-
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
-</style>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Luis Macuácua — Portfólio Profissional (V5.7)</title>
+ <meta name="description" content="Identidades visuais, logotipos, social media e design profissional. Portfólio de Luis Macuácua." />
+ <meta name="theme-color" content="#0A355C">
+ <link rel="canonical" href="https://luismacuacua.vercel.app/">
+ <link rel="icon" href="/favicon.ico">
+ <!-- Open Graph / Twitter for melhor partilha -->
+ <meta property="og:type" content="website">
+ <meta property="og:site_name" content="Luis Macuácua — Portfólio">
+ <meta property="og:title" content="Portfólio de Design — Luis Macuácua">
+ <meta property="og:description" content="Branding, logotipos, social media e materiais promocionais.">
+ <meta property="og:url" content="https://luismacuacua.vercel.app/">
+ <meta property="og:image" content="/hero.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <style>
+ :root{ --bg:#0A355C; --bg-light:#F2F4F7; --text:#FFFFFF; --text-dark:#1A1A1A; --muted:#4B5563; --accent:#6CC24A; --accent-hover:#96E56A; --blue-accent:#004A80; --blue-hover:#005C9E; --card:#0D2C4A; --radius:18px; --shadow:0 12px 30px rgba(0,0,0,.25); --font:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+ *{box-sizing:border-box}
+ body{margin:0;font-family:var(--font);background:var(--bg-light);color:var(--text-dark)}
+ a.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+ a.skip-link:focus{left:16px;top:12px;width:auto;height:auto;padding:10px 14px;background:#fff;border-radius:8px;z-index:1001}
+ nav{position:fixed;top:0;left:0;right:0;background:var(--bg);color:var(--text);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:1000}
+ nav .logo{font-size:20px;font-weight:800;color:var(--accent)}
+ nav .actions a{padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;margin-left:10px;transition:transform .2s ease, background .2s ease}
+ .call-now{background:var(--accent);color:#000}
+ .call-now:hover{background:var(--accent-hover);transform:translateY(-2px)}
+ .whatsapp{background:var(--blue-accent);color:#fff}
+ .whatsapp:hover{background:var(--blue-hover);transform:translateY(-2px)}
+ .hamburger{display:none;cursor:pointer;font-size:30px;line-height:1;border:0;outline:0;background:var(--accent);color:#000;padding:8px 12px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .18s ease, background .22s ease, box-shadow .22s ease}
+ .hamburger:hover{background:var(--accent-hover);transform:translateY(-1px)}
+ .hamburger:focus-visible{outline:3px solid rgba(108,194,74,.55);outline-offset:2px}
+ @media(max-width:900px){nav .actions{display:none}.hamburger{display:block}}
+ #menuOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:900}
+ #menuOverlay.show{opacity:1;pointer-events:auto}
+ #mobileMenu{position:fixed;top:0;right:-260px;width:260px;height:100vh;background:var(--bg);color:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.4);padding:40px 20px;z-index:1001;transform:translateX(260px);opacity:0;transition:transform .35s cubic-bezier(.25,.8,.25,1), opacity .35s ease;display:flex;flex-direction:column;gap:22px}
+ #mobileMenu.open{right:0;transform:translateX(0);opacity:1}
+ #mobileMenu a{color:#fff;font-size:18px;text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+ #closeMenu{font-size:26px;cursor:pointer;text-align:right;margin-bottom:6px;color:#fff}
+ header.hero{position:relative;background:linear-gradient(135deg,#0A355C 0%,#0D2C4A 100%);color:var(--text);padding:160px 20px 110px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+ .hero .wrap{max-width:1200px;width:100%;display:flex;gap:40px;align-items:center;position:relative;z-index:1}
+ .hero-bg-shape{position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(0,120,255,0.16), transparent 60%), radial-gradient(circle at 10% 80%, rgba(0,200,180,0.12), transparent 50%);pointer-events:none;z-index:0}
+ header h1{font-size:48px;margin:0 0 14px;font-weight:800;color:var(--accent)}
+ header p{max-width:520px;color:var(--text)}
+ .btn{padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block;margin-right:10px;transition:transform .22s ease, background .22s ease, box-shadow .22s ease}
+ .btn.primary{background:var(--accent);color:#000}
+ .btn.primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+ .btn.secondary{background:var(--blue-accent);color:var(--text)}
+ .btn.secondary:hover{background:var(--blue-hover);transform:translateY(-2px)}
+ .btn:focus-visible{outline:3px solid rgba(108,194,74,.6);outline-offset:2px}
+ .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden}
+ section{padding:70px 20px;max-width:1200px;margin:auto}
+ section h2{font-size:32px;margin-bottom:20px;color:var(--blue-accent)}
+ .grid{display:grid;gap:26px}
+ .two{grid-template-columns:1fr 1fr}
+ .card{background:var(--card);color:var(--text);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
+ @media(hover:hover){.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.32)}}
+ .card-white{background:#fff;color:var(--text-dark);border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.15);overflow:hidden}
+ .card-white img{width:100%;height:auto;display:block}
+ .flyers,.logos,.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+ .flyers a,.logos a,.gallery a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.06);background:#fff;transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
+ .flyers img,.logos img,.gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+ @media(hover:hover){.flyers a:hover img,.logos a:hover img,.gallery a:hover img{transform:scale(1.02)}.flyers a:hover,.logos a:hover,.gallery a:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.18)}}
+ footer{background:var(--bg);color:var(--text);padding:40px 20px;margin-top:60px;text-align:center}
+ footer .socials{display:flex;justify-content:center;gap:22px;margin-top:10px}
+ footer .socials a{display:flex;align-items:center}
+ footer .socials svg{width:28px;height:28px;fill:white;transition:transform .2s ease, opacity .2s ease}
+ @media(hover:hover){footer .socials a:hover svg{transform:translateY(-2px);opacity:.9}}
+ .reveal{opacity:0;transform:translateY(12px);filter:blur(2px)}
+ .reveal.in{opacity:1;transform:none;filter:none;transition:opacity .7s ease, transform .7s ease, filter .6s ease}
+ [data-stagger] > *{opacity:0;transform:translateY(14px)}
+ [data-stagger].in > *{opacity:1;transform:none;transition:opacity .7s ease, transform .7s ease}
+ [data-stagger].in > *:nth-child(1){transition-delay:.06s}
+ [data-stagger].in > *:nth-child(2){transition-delay:.12s}
+ [data-stagger].in > *:nth-child(3){transition-delay:.18s}
+ [data-stagger].in > *:nth-child(4){transition-delay:.24s}
+ [data-stagger].in > *:nth-child(5){transition-delay:.30s}
+ [data-stagger].in > *:nth-child(6){transition-delay:.36s}
+ .lb-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:1100}
+ .lb-backdrop.open{display:flex}
+ .lb-content{max-width:92vw;max-height:86vh;position:relative}
+ .lb-content img{max-width:100%;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+ .lb-close{position:absolute;top:-44px;right:0;background:#fff;color:#111;padding:8px 12px;border-radius:8px;font-weight:700;cursor:pointer}
+ .lb-caption{margin-top:10px;color:#eee;text-align:center;font-size:14px}
+ @media(max-width:900px){header .wrap{flex-direction:column;text-align:center}.btn{width:100%;margin:10px 0}.two{grid-template-columns:1fr}section{padding:50px 16px}}
+ @media(max-width:600px){h1{font-size:34px !important}h2{font-size:26px !important}.card{padding:20px !important}}
+ @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+ </style>
 </head>
 <body>
-
-<nav class="reveal" aria-label="Barra de navegação">
- <div class="logo">Luis Macuácua</div>
- <div class="actions" aria-hidden="true">
+ <a class="skip-link" href="#main">Saltar para o conteúdo</a>
+ <nav class="reveal" aria-label="Barra de navegação">
+  <div class="logo">Luis Macuácua</div>
+  <div class="actions" aria-hidden="true">
    <a class="call-now" href="tel:+258846863248">Ligar Agora</a>
    <a class="whatsapp" href="https://wa.me/258834502892" target="_blank" rel="noopener">WhatsApp</a>
- </div>
- <button class="hamburger" aria-label="Abrir menu" onclick="openMenu()">☰</button>
-</nav>
-
-<div id="menuOverlay" onclick="closeMenu()" aria-hidden="true"></div>
-<aside id="mobileMenu" aria-label="Menu móvel" aria-hidden="true">
- <div id="closeMenu" role="button" tabindex="0" aria-label="Fechar menu" onclick="closeMenu()">✕</div>
- <a href="#sobre" class="m-link">Sobre Mim</a>
- <a href="#servicos" class="m-link">Serviços</a>
- <a href="#flyers" class="m-link">Como me apresento</a>
- <a href="#portfolio" class="m-link">Portfólio</a>
- <a href="https://wa.me/258834502892" target="_blank" rel="noopener" class="m-link">WhatsApp</a>
- <a href="tel:+258846863248" class="m-link">Ligar Agora</a>
-</aside>
-
-<header class="hero">
+  </div>
+  <button class="hamburger" aria-label="Abrir menu" onclick="openMenu()">☰</button>
+ </nav>
+ <div id="menuOverlay" onclick="closeMenu()" aria-hidden="true"></div>
+ <aside id="mobileMenu" aria-label="Menu móvel" aria-hidden="true">
+  <div id="closeMenu" role="button" tabindex="0" aria-label="Fechar menu" onclick="closeMenu()">✕</div>
+  <a href="#sobre" class="m-link">Sobre Mim</a>
+  <a href="#servicos" class="m-link">Serviços</a>
+  <a href="#flyers" class="m-link">Como me apresento</a>
+  <a href="#portfolio" class="m-link">Portfólio</a>
+  <a href="https://wa.me/258834502892" target="_blank" rel="noopener" class="m-link">WhatsApp</a>
+  <a href="tel:+258846863248" class="m-link">Ligar Agora</a>
+ </aside>
+ <header class="hero">
   <div class="hero-bg-shape"></div>
   <div class="wrap">
-    <div class="reveal">
-      <h1>Construo marcas fortes, profissionais e memoráveis</h1>
-      <p>Desenvolvo visuais profissionais focados em impacto, clareza e resultado — do logotipo à campanha completa.</p>
-      <a class="btn primary" href="#portfolio">Ver Portfólio</a>
-      <a class="btn secondary" href="https://wa.me/258834502892" target="_blank" rel="noopener">Falar no WhatsApp</a>
-    </div>
-    <div class="reveal glass" style="width:420px;max-width:100%">
-      <img src="hero.png" alt="Imagem profissional no hero" style="width:100%;display:block;height:auto" loading="eager" fetchpriority="high">
-    </div>
+   <div class="reveal">
+    <h1>Construo marcas fortes, profissionais e memoráveis</h1>
+    <p>Desenvolvo visuais profissionais focados em impacto, clareza e resultado — do logotipo à campanha completa.</p>
+    <a class="btn primary" href="#portfolio">Ver Portfólio</a>
+    <a class="btn secondary" href="https://wa.me/258834502892" target="_blank" rel="noopener">Falar no WhatsApp</a>
+   </div>
+   <div class="reveal glass" style="width:420px;max-width:100%">
+    <img src="hero.png" width="840" height="840" alt="Imagem profissional no hero" style="width:100%;display:block;height:auto" loading="eager" fetchpriority="high" decoding="async">
+   </div>
   </div>
-</header>
-
-<section id="sobre" class="reveal">
-  <h2>Sobre Mim</h2>
-  <div class="grid two">
+ </header>
+ <main id="main">
+  <section id="sobre" class="reveal">
+   <h2>Sobre Mim</h2>
+   <div class="grid two">
     <div class="card-white">
-      <img src="sobre.png" alt="Imagem profissional na secção Sobre Mim" loading="lazy">
+     <img src="sobre.png" width="1200" height="800" alt="Imagem profissional na secção Sobre Mim" loading="lazy" decoding="async">
     </div>
     <div>
-      <p>Ajudo marcas, empresas e empreendedores a comunicar com clareza através de design profissional e estratégico. Crio identidades visuais, logotipos, banners, flyers, rótulos e artes para redes sociais com foco total em resultado e diferenciação.</p>
-      <p class="muted">Experiência com marcas locais, projetos individuais e empresas — com entrega ágil e comunicação clara.</p>
+     <p>Ajudo marcas, empresas e empreendedores a comunicar com clareza através de design profissional e estratégico. Crio identidades visuais, logotipos, banners, flyers, rótulos e artes para redes sociais com foco total em resultado e diferenciação.</p>
+     <p class="muted">Experiência com marcas locais, projetos individuais e empresas — com entrega ágil e comunicação clara.</p>
     </div>
-  </div>
-</section>
-
-<section id="servicos" class="reveal">
-  <h2>Serviços</h2>
-  <div class="grid" data-stagger>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 3c-4.418 0-8 3.134-8 7 0 2.21 1.343 4 3 4 1.657 0 2-1 3-1s1.343 1 3 1 3-1.79 3-4c0-3.866-3.582-7-8-7z"/>
-          <path d="M19 21c-1.657 0-3-1.343-3-3 0-.552.448-1 1-1h2c.552 0 1 .448 1 1 0 1.657-1.343 3-3 3z"/>
-        </svg>
+   </div>
+  </section>
+  <section id="servicos" class="reveal">
+   <h2>Serviços</h2>
+   <div class="grid" data-stagger>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c-4.418 0-8 3.134-8 7 0 2.21 1.343 4 3 4 1.657 0 2-1 3-1s1.343 1 3 1 3-1.79 3-4c0-3.866-3.582-7-8-7z"/><path d="M19 21c-1.657 0-3-1.343-3-3 0-.552.448-1 1-1h2c.552 0 1 .448 1 1 0 1.657-1.343 3-3 3z"/></svg></div><div class="s-text"><h3>Identidade Visual & Branding</h3><p class="subtitle">Criação completa e coerente da tua marca.</p><ul><li>Logotipos profissionais</li><li>Guias de marca completos</li><li>Tipografia e paleta</li></ul></div></div>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><path d="M11 18h2"/></svg></div><div class="s-text"><h3>Conteúdos para Social Media</h3><p class="subtitle">Design consistente para redes sociais.</p><ul><li>Posts e carrosséis profissionais</li><li>Stories e Reels (layouts)</li><li>Calendário visual</li></ul></div></div>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v15H6z"/><path d="M13 2v5h5"/><path d="M8 10h8M8 14h8M8 18h5"/></svg></div><div class="s-text"><h3>Materiais Promocionais</h3><p class="subtitle">Peças com impacto para campanhas.</p><ul><li>Flyers, banners, cartazes</li><li>Catálogos e panfletos</li><li>Artes para outdoors</li></ul></div></div>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M12 13v9"/><path d="M3 8v8l9 6 9-6V8"/></svg></div><div class="s-text"><h3>Design de Produtos</h3><p class="subtitle">Rótulos e embalagens com presença.</p><ul><li>Rótulos para produtos</li><li>Embalagens funcionais</li><li>Mockups profissionais</li></ul></div></div>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2"/><path d="M4 19h16"/></svg></div><div class="s-text"><h3>Comunicação Visual & Material Corporativo</h3><p class="subtitle">Padronização e presença institucional.</p><ul><li>Cartões, papel timbrado, assinaturas</li><li>Apresentações e templates</li><li>Kits empresariais</li></ul></div></div>
+    <div class="service-card-horizontal"><div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div class="s-text"><h3>Meta Ads / Facebook Ads</h3><p class="subtitle">Artes e layouts otimizados para anúncios.</p><ul><li>Campanhas com foco em conversão</li><li>Layouts performáticos</li><li>Segmentação visual</li></ul></div></div>
+   </div>
+  </section>
+  <section id="flyers" class="reveal">
+   <h2>Como me apresento</h2>
+   <div class="flyers" data-stagger>
+    <a href="/flyer1.png" data-caption="Como me apresento — #1"><img src="/flyer1.png" width="800" height="1000" alt="Como me apresento — arte 1" loading="lazy" decoding="async"></a>
+    <a href="/flyer2.png" data-caption="Como me apresento — #2"><img src="/flyer2.png" width="800" height="1000" alt="Como me apresento — arte 2" loading="lazy" decoding="async"></a>
+    <a href="/flyer3.png" data-caption="Como me apresento — #3"><img src="/flyer3.png" width="800" height="1000" alt="Como me apresento — arte 3" loading="lazy" decoding="async"></a>
+   </div>
+  </section>
+  <section id="marcas" class="reveal">
+   <h2>Marcas que Eu Gerencio</h2>
+   <p style="margin-top:-10px;margin-bottom:30px;color:var(--muted);">Gestão de redes, design contínuo e suporte criativo</p>
+   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;max-width:900px;margin:auto;" data-stagger>
+    <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
+      <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
+        <img src="/saz.png" alt="Logo SAZ Training School" style="width:64px;height:64px;object-fit:contain;">
       </div>
-      <div class="s-text">
-        <h3>Identidade Visual & Branding</h3>
-        <p class="subtitle">Criação completa e coerente da tua marca.</p>
-        <ul>
-          <li>Logotipos profissionais</li>
-          <li>Guias de marca completos</li>
-          <li>Tipografia e paleta</li>
-        </ul>
-      </div>
+      <h3 style="margin:0 0 6px;color:#fff;">SAZ Training School</h3>
+      <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Branding</p>
+      <a class="btn primary" href="https://www.facebook.com/profile.php?id=100083106087571" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;border-radius:12px;background:var(--accent);color:#000;font-weight:700;text-decoration:none;">Ver Página</a>
     </div>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><path d="M11 18h2"/></svg>
+    <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
+      <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
+        <img src="/fix.png" alt="Logo Fix Agency" style="width:64px;height:64px;object-fit:contain;">
       </div>
-      <div class="s-text">
-        <h3>Conteúdos para Social Media</h3>
-        <p class="subtitle">Design consistente para redes sociais.</p>
-        <ul>
-          <li>Posts e carrosséis profissionais</li>
-          <li>Stories e Reels (layouts)</li>
-          <li>Calendário visual</li>
-        </ul>
-      </div>
+      <h3 style="margin:0 0 6px;color:#fff;">Fix Agency</h3>
+      <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Design</p>
+      <a class="btn primary" href="https://www.facebook.com/profile.php?id=100094212367071" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;border-radius:12px;background:var(--accent);color:#000;font-weight:700;text-decoration:none;">Ver Página</a>
     </div>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M6 2h7l5 5v15H6z"/><path d="M13 2v5h5"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>
+    <div class="card" style="background:#0B1C39;padding:28px;border-radius:18px;text-align:center;">
+      <div style="width:90px;height:90px;margin:0 auto 16px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;">
+        <img src="/taaqui.png" alt="Logo taAqui Mozambique" style="width:64px;height:64px;object-fit:contain;">
       </div>
-      <div class="s-text">
-        <h3>Materiais Promocionais</h3>
-        <p class="subtitle">Peças com impacto para campanhas.</p>
-        <ul>
-          <li>Flyers, banners, cartazes</li>
-          <li>Catálogos e panfletos</li>
-          <li>Artes para outdoors</li>
-        </ul>
-      </div>
+      <h3 style="margin:0 0 6px;color:#fff;">taAqui Mozambique</h3>
+      <p style="margin:0 0 18px;color:rgba(255,255,255,.78);">Gestão de Redes &amp; Design</p>
+      <a class="btn primary" href="https://www.instagram.com/taaqui_mz/" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;border-radius:12px;background:var(--accent);color:#000;font-weight:700;text-decoration:none;">Ver Página</a>
     </div>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M12 13v9"/><path d="M3 8v8l9 6 9-6V8"/></svg>
-      </div>
-      <div class="s-text">
-        <h3>Design de Produtos</h3>
-        <p class="subtitle">Rótulos e embalagens com presença.</p>
-        <ul>
-          <li>Rótulos para produtos</li>
-          <li>Embalagens funcionais</li>
-          <li>Mockups profissionais</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2"/><path d="M4 19h16"/></svg>
-      </div>
-      <div class="s-text">
-        <h3>Comunicação Visual & Material Corporativo</h3>
-        <p class="subtitle">Padronização e presença institucional.</p>
-        <ul>
-          <li>Cartões, papel timbrado, assinaturas</li>
-          <li>Apresentações e templates</li>
-          <li>Kits empresariais</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="service-card-horizontal">
-      <div class="s-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-      </div>
-      <div class="s-text">
-        <h3>Meta Ads / Facebook Ads</h3>
-        <p class="subtitle">Artes e layouts otimizados para anúncios.</p>
-        <ul>
-          <li>Campanhas com foco em conversão</li>
-          <li>Layouts performáticos</li>
-          <li>Segmentação visual</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="flyers" class="reveal">
-  <h2>Como me apresento</h2>
-  <div class="flyers" data-stagger>
-    <a href="flyer1.png" data-caption="Como me apresento — #1"><img src="flyer1.png" alt="Como me apresento — arte 1" loading="lazy"></a>
-    <a href="flyer2.png" data-caption="Como me apresento — #2"><img src="flyer2.png" alt="Como me apresento — arte 2" loading="lazy"></a>
-    <a href="flyer3.png" data-caption="Como me apresento — #3"><img src="flyer3.png" alt="Como me apresento — arte 3" loading="lazy"></a>
-  </div>
-</section>
-
-<section id="portfolio" class="reveal">
-  <h2>Portfólio Geral</h2>
-  <div class="gallery" data-stagger>
-    <a href="img1.jpg" data-caption="Imagem 1"><img src="img1.jpg" alt="Imagem 1" loading="lazy"></a>
-    <a href="img2.jpg" data-caption="Imagem 2"><img src="img2.jpg" alt="Imagem 2" loading="lazy"></a>
-    <a href="img3.jpg" data-caption="Imagem 3"><img src="img3.jpg" alt="Imagem 3" loading="lazy"></a>
-    <a href="img4.jpg" data-caption="Imagem 4"><img src="img4.jpg" alt="Imagem 4" loading="lazy"></a>
-    <a href="img5.jpg" data-caption="Imagem 5"><img src="img5.jpg" alt="Imagem 5" loading="lazy"></a>
-    <a href="img6.jpg" data-caption="Imagem 6"><img src="img6.jpg" alt="Imagem 6" loading="lazy"></a>
-  </div>
-</section>
-
-<section id="depoimentos" class="reveal">
-  <h2>Depoimentos</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));" data-stagger>
+   </div>
+  </section>
+  <section id="portfolio" class="reveal">
+   <h2>Portfólio Geral</h2>
+   <div class="gallery" data-stagger>
+    <a href="/img1.jpg" data-caption="Imagem 1"><img src="/img1.jpg" width="1200" height="900" alt="Imagem 1" loading="lazy" decoding="async"></a>
+    <a href="/img2.jpg" data-caption="Imagem 2"><img src="/img2.jpg" width="1200" height="900" alt="Imagem 2" loading="lazy" decoding="async"></a>
+    <a href="/img3.jpg" data-caption="Imagem 3"><img src="/img3.jpg" width="1200" height="900" alt="Imagem 3" loading="lazy" decoding="async"></a>
+    <a href="/img4.jpg" data-caption="Imagem 4"><img src="/img4.jpg" width="1200" height="900" alt="Imagem 4" loading="lazy" decoding="async"></a>
+    <a href="/img5.jpg" data-caption="Imagem 5"><img src="/img5.jpg" width="1200" height="900" alt="Imagem 5" loading="lazy" decoding="async"></a>
+    <a href="/img6.jpg" data-caption="Imagem 6"><img src="/img6.jpg" width="1200" height="900" alt="Imagem 6" loading="lazy" decoding="async"></a>
+    <a href="/img7.jpg" data-caption="Imagem 7"><img src="/img7.jpg" width="1200" height="900" alt="Imagem 7" loading="lazy" decoding="async"></a>
+    <a href="/img8.jpg" data-caption="Imagem 8"><img src="/img8.jpg" width="1200" height="900" alt="Imagem 8" loading="lazy" decoding="async"></a>
+    <a href="/img9.jpg" data-caption="Imagem 9"><img src="/img9.jpg" width="1200" height="900" alt="Imagem 9" loading="lazy" decoding="async"></a>
+    <a href="/img10.jpg" data-caption="Imagem 10"><img src="/img10.jpg" width="1200" height="900" alt="Imagem 10" loading="lazy" decoding="async"></a>
+    <a href="/img11.jpg" data-caption="Imagem 11"><img src="/img11.jpg" width="1200" height="900" alt="Imagem 11" loading="lazy" decoding="async"></a>
+    <a href="/img12.jpg" data-caption="Imagem 12"><img src="/img12.jpg" width="1200" height="900" alt="Imagem 12" loading="lazy" decoding="async"></a>
+    <a href="/img13.jpg" data-caption="Imagem 13"><img src="/img13.jpg" width="1200" height="900" alt="Imagem 13" loading="lazy" decoding="async"></a>
+    <a href="/img14.jpg" data-caption="Imagem 14"><img src="/img14.jpg" width="1200" height="900" alt="Imagem 14" loading="lazy" decoding="async"></a>
+   </div>
+  </section>
+  <section id="depoimentos" class="reveal">
+   <h2>Depoimentos</h2>
+   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));" data-stagger>
     <div class="testimonial">“Serviço impecável. O resultado final superou totalmente as expectativas.” — Cliente Local</div>
     <div class="testimonial">“Comunicação excelente e design extremamente bem executado. Recomendo vivamente.” — Pequeno Negócio</div>
     <div class="testimonial">“Processo simples, rápido e muito profissional. O design ficou exatamente como imaginávamos.” — Empreendedor</div>
-  </div>
-</section>
-
-<section id="cta" style="text-align:center;" class="reveal">
-  <h2>Vamos criar algo memorável?</h2>
-  <p>Envia a tua ideia agora e recebes um orçamento em poucos minutos.</p>
-  <a class="btn primary" href="https://wa.me/258834502892" target="_blank" rel="noopener">Falar no WhatsApp</a>
-  <a class="btn secondary" href="#portfolio">Ver Portfólio</a>
-  <a class="btn primary" href="tel:+258846863248">Ligar Agora</a>
-</section>
-
-<footer class="reveal">
- <div class="socials">
+   </div>
+  </section>
+  <section id="cta" style="text-align:center;" class="reveal">
+   <h2>Vamos criar algo memorável?</h2>
+   <p>Envia a tua ideia agora e recebes um orçamento em poucos minutos.</p>
+   <a class="btn primary" href="https://wa.me/258834502892" target="_blank" rel="noopener">Falar no WhatsApp</a>
+   <a class="btn secondary" href="#portfolio">Ver Portfólio</a>
+   <a class="btn primary" href="tel:+258846863248">Ligar Agora</a>
+  </section>
+ </main>
+ <footer class="reveal">
+  <div class="socials">
    <a href="https://www.facebook.com/curiculopersonalizadomoz" target="_blank" rel="noopener" aria-label="Facebook">
-     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.49v-9.294H9.691V11.01h3.124V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.765v2.315h3.59l-.467 3.696h-3.123V24h6.127C23.406 24 24 23.406 24 22.674V1.326C24 .593 23.406 0 22.675 0z"/></svg>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.594 0 0 .593 0 1.326v21.348C0 23.406.594 24 1.325 24h11.49v-9.294H9.691V11.01h3.124V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.765v2.315h3.59l-.467 3.696h-3.123V24h6.127C23.406 24 24 23.406 24 22.674V1.326C24 .593 23.406 0 22.675 0z"/></svg>
    </a>
    <a href="https://www.instagram.com/luismacuacu_a/" target="_blank" rel="noopener" aria-label="Instagram">
-     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 3a5 5 0 100 10 5 5 0 000-10zm6-1a1 1 0 110 2 1 1 0 010-2z"/></svg>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 3a5 5 0 100 10 5 5 0 000-10zm6-1a1 1 0 110 2 1 1 0 010-2z"/></svg>
    </a>
    <a href="https://www.linkedin.com/in/luis-macuácua-a65ba5344/" target="_blank" rel="noopener" aria-label="LinkedIn">
-     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01 2.5 2.5 0 01.01-5.01zM2 9h6v12H2V9zm7.5 0h5.7v1.71h.08c.8-1.52 2.75-2.88 5.67-2.88 6.07 0 7.2 3.78 7.2 8.69V21H22v-4.91c0-1.17-.02-2.67-.52-3.76-.5-1.09-1.46-1.86-2.92-1.86-2.53 0-3.6 1.76-3.6 4.36V21h-6V9z"/></svg>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01 2.5 2.5 0 01.01-5.01zM2 9h6v12H2V9zm7.5 0h5.7v1.71h.08c.8-1.52 2.75-2.88 5.67-2.88 6.07 0 7.2 3.78 7.2 8.69V21H22v-4.91c0-1.17-.02-2.67-.52-3.76-.5-1.09-1.46-1.86-2.92-1.86-2.53 0-3.6 1.76-3.6 4.36V21h-6V9z"/></svg>
    </a>
    <a href="mailto:luisfernandomacuacua58@gmail.com" aria-label="Email">
-     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
    </a>
- </div>
- <p style="margin-top:20px;opacity:.6">© 2026 Luis Macuácua — Design Gráfico</p>
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lb-backdrop" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
-  <div class="lb-content">
-    <button class="lb-close" id="lbClose" aria-label="Fechar">Fechar ✕</button>
-    <img id="lbImg" alt="Visualização" />
-    <div class="lb-caption" id="lbCap"></div>
   </div>
-</div>
-
-<script>
-// Reveal on scroll
-(function(){
-  const reveals=[].slice.call(document.querySelectorAll('.reveal,[data-stagger]'));
-  if(!('IntersectionObserver' in window)){reveals.forEach(el=>el.classList.add('in'));return}
-  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -10% 0px'});
-  reveals.forEach(el=>io.observe(el));
-})();
-// Lightbox
-(function(){
-  const lb=document.getElementById('lightbox');
-  const lbImg=document.getElementById('lbImg');
-  const lbCap=document.getElementById('lbCap');
-  const lbClose=document.getElementById('lbClose');
-  const clickable=document.querySelectorAll('.flyers a,.logos a,.gallery a');
-  function openLB(e){e.preventDefault();const href=this.getAttribute('href');const cap=this.getAttribute('data-caption')||'';lbImg.src=href;lbCap.textContent=cap;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
-  clickable.forEach(a=>a.addEventListener('click',openLB));
-  function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='auto'}
-  lbClose.addEventListener('click',closeLB);
-  lb.addEventListener('click',ev=>{if(ev.target===lb) closeLB()});
-  document.addEventListener('keydown',ev=>{if(ev.key==='Escape') closeLB()});
-})();
-// Mobile menu open/close + overlay
-function openMenu(){document.getElementById('mobileMenu').classList.add('open');document.getElementById('menuOverlay').classList.add('show');document.getElementById('mobileMenu').setAttribute('aria-hidden','false')}
-function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('menuOverlay').classList.remove('show');document.getElementById('mobileMenu').setAttribute('aria-hidden','true')}
-Array.prototype.slice.call(document.querySelectorAll('#mobileMenu .m-link')).forEach(function(a){a.addEventListener('click',closeMenu)});
-document.addEventListener('keydown',function(ev){ if(ev.key==='Escape') closeMenu(); });
-</script>
+  <p style="margin-top:20px;opacity:.6">© 2026 Luis Macuácua — Design Gráfico</p>
+ </footer>
+ <!-- LIGHTBOX -->
+ <div class="lb-backdrop" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
+  <div class="lb-content">
+   <button class="lb-close" id="lbClose" aria-label="Fechar">Fechar ✕</button>
+   <img id="lbImg" alt="Visualização" />
+   <div class="lb-caption" id="lbCap"></div>
+  </div>
+ </div>
+ <script defer>
+ (function(){ const reveals=[].slice.call(document.querySelectorAll('.reveal,[data-stagger]')); if(!('IntersectionObserver' in window)){ reveals.forEach(el=>el.classList.add('in'));return } const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -10% 0px'}); reveals.forEach(el=>io.observe(el)); })();
+ (function(){ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(prefersReduced) return; document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ const id=a.getAttribute('href'); if(id.length>1){ const el=document.querySelector(id); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});} } }); }); })();
+ (function(){ const lb=document.getElementById('lightbox'); const lbImg=document.getElementById('lbImg'); const lbCap=document.getElementById('lbCap'); const lbClose=document.getElementById('lbClose'); const clickable=document.querySelectorAll('.flyers a,.logos a,.gallery a'); function openLB(e){ e.preventDefault(); const href=this.getAttribute('href'); const cap=this.getAttribute('data-caption') || ''; lbImg.src=href;lbCap.textContent=cap;lb.classList.add('open'); lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'; lbClose.focus(); } clickable.forEach(a=>a.addEventListener('click',openLB)); function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbImg.src='';document.body.style.overflow='auto'} lbClose.addEventListener('click',closeLB); lb.addEventListener('click',ev=>{if(ev.target===lb) closeLB()}); document.addEventListener('keydown',ev=>{if(ev.key==='Escape') closeLB()}); })();
+ function openMenu(){ const m=document.getElementById('mobileMenu'); const o=document.getElementById('menuOverlay'); m.classList.add('open');o.classList.add('show');m.setAttribute('aria-hidden','false'); document.getElementById('closeMenu').focus(); }
+ function closeMenu(){ const m=document.getElementById('mobileMenu'); const o=document.getElementById('menuOverlay'); m.classList.remove('open');o.classList.remove('show');m.setAttribute('aria-hidden','true') }
+ Array.prototype.slice.call(document.querySelectorAll('#mobileMenu .m-link')).forEach(function(a){a.addEventListener('click',closeMenu)}); document.addEventListener('keydown',function(ev){ if(ev.key==='Escape') closeMenu(); });
+ </script>
+ <script type="application/ld+json">
+ {"@context":"https://schema.org","@type":"Person","name":"Luis Macuácua","jobTitle":"Designer Gráfico","url":"https://luismacuacua.vercel.app/","image":"https://luismacuacua.vercel.app/hero.png","sameAs":["https://www.instagram.com/luismacuacu_a/","https://www.linkedin.com/in/luis-macuácua-a65ba5344/"]}
+ </script>
 </body>
 </html>
