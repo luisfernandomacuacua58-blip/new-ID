@@ -8,7 +8,7 @@
  <meta name="theme-color" content="#0A355C">
  <link rel="canonical" href="https://luismacuacua.vercel.app/">
  <link rel="icon" href="/favicon.ico">
- <!-- Open Graph / Twitter for melhor partilha -->
+ <link rel="preload" as="image" href="/hero.png" imagesrcset="/hero.png 1x" imagesizes="(max-width: 600px) 100vw, 420px">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Luis Macuácua — Portfólio">
  <meta property="og:title" content="Portfólio de Design — Luis Macuácua">
@@ -52,7 +52,12 @@
  .btn:focus-visible{outline:3px solid rgba(108,194,74,.6);outline-offset:2px}
  .glass{background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden}
  section{padding:70px 20px;max-width:1200px;margin:auto}
- section h2{font-size:32px;margin-bottom:20px;color:var(--blue-accent)}
+ section h2{font-size:32px;margin-bottom:16px;color:var(--blue-accent)}
+ /* Spacing tweaks between Sobre & Flyers */
+ #sobre{padding-bottom:40px}
+ #flyers{padding-top:40px}
+ /* Render perf: delay offscreen sections */
+ #portfolio, #depoimentos, #cta{content-visibility:auto; contain-intrinsic-size: 900px 600px}
  .grid{display:grid;gap:26px}
  .two{grid-template-columns:1fr 1fr}
  .card{background:var(--card);color:var(--text);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.6,.2,1), box-shadow .28s ease}
@@ -93,7 +98,7 @@
  <a class="skip-link" href="#main">Saltar para o conteúdo</a>
  <nav class="reveal" aria-label="Barra de navegação">
   <div class="logo">Luis Macuácua</div>
-  <div class="actions" aria-hidden="true">
+  <div class="actions">
    <a class="call-now" href="tel:+258846863248">Ligar Agora</a>
    <a class="whatsapp" href="https://wa.me/258834502892" target="_blank" rel="noopener">WhatsApp</a>
   </div>
@@ -237,7 +242,6 @@
   </div>
   <p style="margin-top:20px;opacity:.6">© 2026 Luis Macuácua — Design Gráfico</p>
  </footer>
- <!-- LIGHTBOX -->
  <div class="lb-backdrop" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização de imagem">
   <div class="lb-content">
    <button class="lb-close" id="lbClose" aria-label="Fechar">Fechar ✕</button>
